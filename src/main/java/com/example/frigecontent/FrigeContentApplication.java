@@ -1,0 +1,13 @@
+package com.example.frigecontent;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class FrigeContentApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(FrigeContentApplication.class, args);
+    }
+
+}
