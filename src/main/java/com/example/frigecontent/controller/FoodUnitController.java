@@ -12,6 +12,7 @@ public class FoodUnitController {
 
     private FoodUnitService foodUnitService;
     private FoodUnitMapper foodUnitMapper;
+
     // Конструктор контроллера, который принимает сервис в качестве зависимости
     public FoodUnitController(FoodUnitService foodUnitService, FoodUnitMapper foodUnitMapper) {
         this.foodUnitService = foodUnitService;
@@ -29,5 +30,5 @@ public class FoodUnitController {
     public FoodUnitDTO createFoodUnit(@RequestBody FoodUnitDTO foodUnitDTO) {
         return foodUnitService.createFoodUnit(foodUnitDTO);
     }
-    }
 }
+
