@@ -1,3 +1,5 @@
+package com.example.frigecontent.sevice;
+
 @Data
 @Service
 public class ShoppingListService {

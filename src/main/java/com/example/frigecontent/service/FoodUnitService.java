@@ -1,8 +1,5 @@
-/*
-Здесь вы создадите бизнес-логику для управления продуктами.
- */
+package com.example.frigecontent.sevice;
 
-// Указываем, что этот класс является сервисом
 @Data
 @Service
 public class FoodUnitService {

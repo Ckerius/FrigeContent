@@ -1,3 +1,5 @@
+package com.example.frigecontent.model;
+
 @Data
 @Entity
 @Table(name = "shopping_lists")

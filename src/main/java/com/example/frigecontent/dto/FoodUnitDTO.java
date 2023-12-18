@@ -1,3 +1,4 @@
+package com.example.frigecontent.dto;
 @Data
 public class FoodUnitDTO {
 
