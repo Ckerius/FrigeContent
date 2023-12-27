@@ -1,28 +1,26 @@
-package com.example.frigecontent.sevice;
+package com.example.frigecontent.service;
 
 import com.example.frigecontent.model.Container;
 import com.example.frigecontent.model.FoodUnit;
 import com.example.frigecontent.repository.ContainerRepository;
 import com.example.frigecontent.repository.FoodUnitRepository;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Data
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ContainerService {
 
-    private ContainerRepository containerRepository;
-    private FoodUnitRepository foodUnitRepository;
-
-    @Autowired
-    public ContainerService(ContainerRepository containerRepository, FoodUnitRepository foodUnitRepository) {
-        this.containerRepository = containerRepository;
-        this.foodUnitRepository = foodUnitRepository;
-    }
+    FoodUnitRepository foodUnitRepository;
+    ContainerRepository containerRepository;
 
     public List<Container> getAllContainers() {
         return containerRepository.findAll();

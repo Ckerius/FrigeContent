@@ -5,24 +5,22 @@ import com.example.frigecontent.model.ShoppingList;
 import com.example.frigecontent.repository.FoodUnitRepository;
 import com.example.frigecontent.repository.ShoppingListRepository;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Data
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ShoppingListService {
 
-    private ShoppingListRepository shoppingListRepository;
-    private FoodUnitRepository foodUnitRepository;
-
-    @Autowired
-    public ShoppingListService(ShoppingListRepository shoppingListRepository, FoodUnitRepository foodUnitRepository) {
-        this.shoppingListRepository = shoppingListRepository;
-        this.foodUnitRepository = foodUnitRepository;
-    }
+    FoodUnitRepository foodUnitRepository;
+    ShoppingListRepository shoppingListRepository;
 
     public List<ShoppingList> getAllShoppingLists() {
         return shoppingListRepository.findAll();

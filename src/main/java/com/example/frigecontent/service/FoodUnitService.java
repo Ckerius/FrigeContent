@@ -4,23 +4,21 @@ import com.example.frigecontent.controller.FoodUnitMapper;
 import com.example.frigecontent.dto.FoodUnitDTO;
 import com.example.frigecontent.model.FoodUnit;
 import com.example.frigecontent.repository.FoodUnitRepository;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Data
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class FoodUnitService {
 
-    private FoodUnitRepository foodUnitRepository;
     private FoodUnitMapper foodUnitMapper;
-
-    // Конструктор сервиса, который принимает репозиторий в качестве зависимости
-    public FoodUnitService(FoodUnitRepository foodUnitRepository, FoodUnitMapper foodUnitMapper) {
-        this.foodUnitRepository = foodUnitRepository;
-        this.foodUnitMapper = foodUnitMapper;
-    }
+    private FoodUnitRepository foodUnitRepository;
 
     // Метод для получения всех единиц пищи
     public List<FoodUnitDTO> getAllFoodUnits() {
@@ -32,8 +30,7 @@ public class FoodUnitService {
     // Метод для создания новой единицы пищи
     public FoodUnitDTO createFoodUnit(FoodUnitDTO foodUnitDTO) {
         FoodUnit newFoodUnit = foodUnitMapper.toEntity(foodUnitDTO); // Преобразование DTO в сущность и сохранение в репозитории
-        FoodUnit savedFoodUnit = foodUnitRepository.save(newFoodUnit);
 
-        return foodUnitMapper.toDTO(savedFoodUnit); // использование маппера для преобразования результата в DTO
+        return foodUnitMapper.toDTO(foodUnitRepository.save(newFoodUnit)); // использование маппера для преобразования результата в DTO
     }
 }

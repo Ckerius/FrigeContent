@@ -4,22 +4,19 @@ package com.example.frigecontent.controller;
 
 import com.example.frigecontent.dto.FoodUnitDTO;
 import com.example.frigecontent.service.FoodUnitService;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/foodUnits")
+@RequiredArgsConstructor
+@RestController("/food-units")
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class FoodUnitController {
 
-    private FoodUnitService foodUnitService;
-    private FoodUnitMapper foodUnitMapper;
-
-    // Конструктор контроллера, который принимает сервис в качестве зависимости
-    public FoodUnitController(FoodUnitService foodUnitService, FoodUnitMapper foodUnitMapper) {
-        this.foodUnitService = foodUnitService;
-        this.foodUnitMapper = foodUnitMapper;
-    }
+    FoodUnitService foodUnitService;
 
     // Метод для получения всех единиц пищи
     @GetMapping

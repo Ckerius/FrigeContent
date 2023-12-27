@@ -1,3 +1,5 @@
+package com.example.frigecontent.controller;
+
 @WebMvcTest(FoodUnitController.class)
 class FoodUnitControllerTest {
 

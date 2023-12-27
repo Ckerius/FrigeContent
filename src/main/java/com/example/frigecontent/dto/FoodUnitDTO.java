@@ -1,6 +1,7 @@
 package com.example.frigecontent.dto;
 
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 
@@ -8,12 +9,13 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class FoodUnitDTO {
 
-    private Long id;
-    private String name;
-    private String category;
-    private LocalDate expirationDate;
-    private boolean isInStock;
+    Long id;
+    String name;
+    String category;
+    boolean isInStock;
+    LocalDate expirationDate;
 
 }
