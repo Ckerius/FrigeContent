@@ -1,5 +1,13 @@
 package com.example.frigecontent.dto;
-@Data
+
+import lombok.*;
+
+import java.time.LocalDate;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class FoodUnitDTO {
 
     private Long id;

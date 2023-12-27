@@ -1,7 +1,17 @@
 package com.example.frigecontent.model;
 
-@Data
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
 @Table(name = "containers")
 public class Container {
 
@@ -13,13 +23,13 @@ public class Container {
     @OneToMany(cascade = CascadeType.ALL)
     private List<FoodUnit> products;
 
-    @ElementCollection
-    private List<FoodUnit> expiringProducts;
-
-    @ElementCollection
-    private List<FoodUnit> expiredProducts;
-
-    @ElementCollection
-    private List<FoodUnit> previousProducts;
+//    @ElementCollection
+//    private List<FoodUnit> expiringProducts;
+//
+//    @ElementCollection
+//    private List<FoodUnit> expiredProducts;
+//
+//    @ElementCollection
+//    private List<FoodUnit> previousProducts;
 
 }

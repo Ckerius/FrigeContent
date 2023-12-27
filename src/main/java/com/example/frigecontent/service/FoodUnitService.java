@@ -1,4 +1,13 @@
-package com.example.frigecontent.sevice;
+package com.example.frigecontent.service;
+
+import com.example.frigecontent.controller.FoodUnitMapper;
+import com.example.frigecontent.dto.FoodUnitDTO;
+import com.example.frigecontent.model.FoodUnit;
+import com.example.frigecontent.repository.FoodUnitRepository;
+import lombok.Data;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Data
 @Service

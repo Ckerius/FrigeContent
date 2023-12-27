@@ -2,6 +2,12 @@ package com.example.frigecontent.controller;
 
 // Указываем, что этот класс является контроллером и будет обрабатывать запросы по пути "/foodUnits"
 
+import com.example.frigecontent.dto.FoodUnitDTO;
+import com.example.frigecontent.service.FoodUnitService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/foodUnits")
 public class FoodUnitController {
